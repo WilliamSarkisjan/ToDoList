@@ -10,3 +10,7 @@ namespace ToDoList
         }
     }
 }
+/* (dagVanWeek, beginDag){
+    (datum - begindatum ) % 7
+
+} formatstring: dd/mm/jj */ 
