@@ -6,7 +6,7 @@ namespace ToDoList
 {
     class Day
     {
-        private Task[] TaskList = new Task[] { new Task("Lopen", "Lekker wandelen"), new Task("YouTube kijken", "ff kijken")};
+        private List<Task> TaskList = new List<Task>(){ new Task("Lopen", "Lekker wandelen"), new Task("YouTube kijken", "ff kijken")};
         public string Name; //Maandag
         private int Number;
 
@@ -26,11 +26,14 @@ namespace ToDoList
                 Console.WriteLine("< Dag  Week  Maand  Jaar >", Console.ForegroundColor);
                 Console.WriteLine($"< Gister  {this.Name}  Morgen >\n");
                 Console.ForegroundColor = ConsoleColor.White;
-                for (int i = 0; i < TaskList.Length; i++)
+                for (int i = 0; i < TaskList.Count; i++)
                     Console.WriteLine(TaskList[i].Name);
                 Console.ReadKey();
             }
         }
-        public void AddTask() { }
+        public void AddTask() 
+        {
+            TaskList.Add(new Task("lol", "hihi"));
+        }
     }
 }
