@@ -6,7 +6,7 @@ namespace ToDoList
 {
     class Day
     {
-        private Task[] TaskList;
+        private List<Task> TaskList;
         private string Name; //Maandag
         private int Number;
 
@@ -18,5 +18,6 @@ namespace ToDoList
 
         public void ShowDayTasks() { }
         public void AddTask() { }
+        public void RemoveTask(Task item) => TaskList.Remove(item);        
     }
 }

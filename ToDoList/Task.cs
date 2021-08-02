@@ -16,8 +16,23 @@ namespace ToDoList
             //Finished = false;
         }
 
-        public void TaskInfo() { }
-        public void EditTask() { }
+        public string TaskInfo() => $"{this.Name}, {this.Finished}";
+        
+        public void EditTask() 
+        { 
+            /* 
+            Edit task
+            - Task name         (index 0)
+            - Task Description  (index 1)
+             
+             
+             
+            */
+
+
+        }
         public void RemoveTask() { }
+
+        public void CompleteTask() => this.Finished = true;
     }
 }
