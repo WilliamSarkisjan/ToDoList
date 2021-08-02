@@ -9,6 +9,7 @@ namespace ToDoList
         private List<Task> TaskList;
         private string Name; //Maandag
         private int Number;
+        private int index;
 
         public Day(string name, int number)
         {

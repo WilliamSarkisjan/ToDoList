@@ -7,10 +7,21 @@ namespace ToDoList
     class Program
     {
         public TODOLIST ToDoList;
-        public Dictionary<string, int> DayAmountPerMonth;
+        static public Dictionary<string, int> DayAmountPerMonth = new Dictionary<string, int>();
         static void Main(string[] args)
         {
-            
+            DayAmountPerMonth.Add("January", 31);
+            DayAmountPerMonth.Add("February", 28);
+            DayAmountPerMonth.Add("March", 31);
+            DayAmountPerMonth.Add("April", 30);
+            DayAmountPerMonth.Add("May", 31);
+            DayAmountPerMonth.Add("June", 30);
+            DayAmountPerMonth.Add("July", 31);
+            DayAmountPerMonth.Add("August", 31);
+            DayAmountPerMonth.Add("September", 30);
+            DayAmountPerMonth.Add("October", 31);
+            DayAmountPerMonth.Add("November", 30);
+            DayAmountPerMonth.Add("December", 31);
         }
     }
 }
