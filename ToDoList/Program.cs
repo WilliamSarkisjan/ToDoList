@@ -10,7 +10,8 @@ namespace ToDoList
         public Dictionary<string, int> DayAmountPerMonth;
         static void Main(string[] args)
         {
-            
+            Day Daag = new Day("Maandag", 2);
+            Daag.ShowDayTasks();
         }
     }
 }
