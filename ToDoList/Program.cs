@@ -22,6 +22,8 @@ namespace ToDoList
             DayAmountPerMonth.Add("October", 31);
             DayAmountPerMonth.Add("November", 30);
             DayAmountPerMonth.Add("December", 31);
+            Day Daag = new Day("Maandag", 2);
+            Daag.ShowDayTasks();
         }
     }
 }
