@@ -6,9 +6,9 @@ namespace ToDoList
 {
     class Task
     {
-        public string Name;
-        private string Description;
-        private bool Finished;
+        public string Name { get; set; }
+        private string Description { get; set; }
+        private bool Finished { get; set; }
         public Task(string name, string description)
         {
             Name = name;

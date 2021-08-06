@@ -7,8 +7,8 @@ namespace ToDoList
     class Day
     {
         private List<Task> TaskList = new List<Task>(){ new Task("Lopen", "Lekker wandelen"), new Task("YouTube kijken", "ff kijken")};
-        public string Name; //Maandag
-        private int Number;
+        public string Name { get; set; }
+        private int Number { get; set; }
 
         public Day(string name, int number)
         {
