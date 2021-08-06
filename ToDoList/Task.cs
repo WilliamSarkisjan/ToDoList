@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static ToDoList.Program; 
+
 
 namespace ToDoList
 {
@@ -9,27 +11,28 @@ namespace ToDoList
         public string Name;
         private string Description;
         private bool Finished;
+        private List<string> TaskCredentials = new List<string>();
         public Task(string name, string description)
         {
             Name = name;
             Description = description;
             //Finished = false;
+            TaskCredentials.Add($"Name: {name}");
+            TaskCredentials.Add($"Description: {description}");
         }
 
         public string TaskInfo() => $"{this.Name}, {this.Finished}";
         
         public void EditTask() 
-        { 
-            /* 
-            Edit task
-            - Task name         (index 0)
-            - Task Description  (index 1)
-             
-             
-             
-            */
-
-
+        {
+            int indexY = 0;
+            while (indexY >= 0)
+            {
+                Console.Clear();
+                Console.WriteLine(ShowSelectedListItem(indexY, TaskCredentials, x => x + ""));
+                ConsoleKey userInput = Console.ReadKey().Key;
+                indexY = InputController(userInput, indexY, x => Console.Write(""), TaskCredentials);
+            }
         }
         public void RemoveTask() { }
 
