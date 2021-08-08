@@ -59,11 +59,12 @@ namespace ToDoList
             DayAmountPerMonth.Add("November", 30);
             DayAmountPerMonth.Add("December", 31);
             Day Daag = new Day("Maandag", 2);
+            Year tweeduizendeenentwintig = new Year(2021);
             tweeduizendeenentwintig.MonthList.Add(new Month("Januari"));
             tweeduizendeenentwintig.MonthList.Add(new Month("Februari"));
             tweeduizendeenentwintig.MonthList[0].DayList.Add(Daag);
             tweeduizendeenentwintig.MonthList[1].DayList.Add(Daag);
-            File.WriteAllText("Testje.json", JsonSerializer.Serialize(tweeduizendeenentwintig, JSONoptions));
+            File.WriteAllText("Testje.json", JsonSerializer.Serialize(tweeduizendeenentwintig));
             Daag.ShowDayTasks();
         }
     }

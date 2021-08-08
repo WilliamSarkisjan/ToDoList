@@ -8,13 +8,10 @@ namespace ToDoList
 {
     class Task
     {
-        public string Name;
-        private string Description;
-        private bool Finished;
         private List<string> TaskCredentials = new List<string>();
         public string Name { get; set; }
-        private string Description { get; set; }
-        private bool Finished { get; set; }
+        public string Description { get; set; }
+        public bool Finished { get; set; }
         public Task(string name, string description)
         {
             Name = name;
