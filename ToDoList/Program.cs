@@ -20,7 +20,9 @@ namespace ToDoList
             Year tweeduizendeenentwintig = new Year(2021);
             Day Daag = new Day("Maandag", 2);
             tweeduizendeenentwintig.MonthList.Add(new Month("Januari"));
+            tweeduizendeenentwintig.MonthList.Add(new Month("Februari"));
             tweeduizendeenentwintig.MonthList[0].DayList.Add(Daag);
+            tweeduizendeenentwintig.MonthList[1].DayList.Add(Daag);
             File.WriteAllText("Testje.json", JsonSerializer.Serialize(tweeduizendeenentwintig, JSONoptions));
             Daag.ShowDayTasks();
         }
