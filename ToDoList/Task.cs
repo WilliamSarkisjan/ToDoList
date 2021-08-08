@@ -8,7 +8,16 @@ namespace ToDoList
 {
     class Task
     {
-        private List<string> TaskCredentials = new List<string>();
+        private List<string> TaskCredentials
+        {
+            get
+            {
+                var nieuwLijst = new List<string>();
+                nieuwLijst.Add($"Name: {Name}");
+                nieuwLijst.Add($"Description: {Description}");
+                return nieuwLijst;
+            }
+        }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Finished { get; set; }
@@ -17,8 +26,6 @@ namespace ToDoList
             Name = name;
             Description = description;
             //Finished = false;
-            TaskCredentials.Add($"Name: {name}");
-            TaskCredentials.Add($"Description: {description}");
         }
 
         public string TaskInfo() => $"{this.Name}, {this.Finished}";
@@ -31,11 +38,31 @@ namespace ToDoList
                 Console.Clear();
                 Console.WriteLine(ShowSelectedListItem(indexY, TaskCredentials, x => x + ""));
                 ConsoleKey userInput = Console.ReadKey().Key;
-                indexY = InputController(userInput, indexY, x => Console.Write(""), TaskCredentials);
+                indexY = InputController(userInput, indexY, x => EditAttribute(x), TaskCredentials);
             }
         }
         public void RemoveTask() { }
 
         public void CompleteTask() => this.Finished = true;
+
+        public void EditAttribute(string x)
+        {
+            bool goOn = true;
+            while (goOn)
+            {
+                Console.Clear();
+                if(x.Contains("Name: "))
+                    Console.WriteLine($"Enter the new name of the task: {Name}");
+                if (x.Contains("Description: "))
+                    Console.WriteLine($"Enter the new description of the task: {Name}");
+                var newAttribute = Console.ReadLine();
+
+                if (x.Contains("Name: "))
+                    Name = newAttribute;
+                if (x.Contains("Description: "))
+                    Description = newAttribute;
+                goOn = false;
+            }
+        }
     }
 }
