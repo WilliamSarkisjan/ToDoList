@@ -77,6 +77,19 @@ namespace ToDoList
             //File.WriteAllText("Testje.json", JsonSerializer.Serialize(tweeduizendeenentwintig));
             Daag.ShowDayTasks();
         }
+
+        /// <summary>
+        /// A year is said to be leap year if the year is exactly divisible by 4 but not divisible by 100. 
+        /// Year is also a leap year if it is exactly divisible by 400.
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static bool isLeap(int year)
+        {
+            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+                return true;
+            return false;
+        }
     }
 }
 /* (dagVanWeek, beginDag){
