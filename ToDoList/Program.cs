@@ -10,6 +10,7 @@ namespace ToDoList
     {
         public TODOLIST ToDoList;
         static public Dictionary<string, int> DayAmountPerMonth = new Dictionary<string, int>();
+        static public string[] DaysOfTheWeek = new string[7];
 
         public static string ShowSelectedListItem<T>(int index, List<T> List, Func<T, string> f) //Needs to be placed in a better spot
         {
@@ -58,13 +59,22 @@ namespace ToDoList
             DayAmountPerMonth.Add("October", 31);
             DayAmountPerMonth.Add("November", 30);
             DayAmountPerMonth.Add("December", 31);
+
+            DaysOfTheWeek[0] = "Monday";
+            DaysOfTheWeek[1] = "Tuesday";
+            DaysOfTheWeek[2] = "Wednesday";
+            DaysOfTheWeek[3] = "Thursday";
+            DaysOfTheWeek[4] = "Friday";
+            DaysOfTheWeek[5] = "Saturday";
+            DaysOfTheWeek[6] = "Sunday";
+
             Day Daag = new Day("Maandag", 2);
-            Year tweeduizendeenentwintig = new Year(2021);
-            tweeduizendeenentwintig.MonthList.Add(new Month("Januari"));
-            tweeduizendeenentwintig.MonthList.Add(new Month("Februari"));
-            tweeduizendeenentwintig.MonthList[0].DayList.Add(Daag);
-            tweeduizendeenentwintig.MonthList[1].DayList.Add(Daag);
-            File.WriteAllText("Testje.json", JsonSerializer.Serialize(tweeduizendeenentwintig));
+            //Year tweeduizendeenentwintig = new Year(2021);
+            //tweeduizendeenentwintig.MonthList.Add(new Month("Januari"));
+            //tweeduizendeenentwintig.MonthList.Add(new Month("Februari"));
+            //tweeduizendeenentwintig.MonthList[0].DayList.Add(Daag);
+            //tweeduizendeenentwintig.MonthList[1].DayList.Add(Daag);
+            //File.WriteAllText("Testje.json", JsonSerializer.Serialize(tweeduizendeenentwintig));
             Daag.ShowDayTasks();
         }
     }
