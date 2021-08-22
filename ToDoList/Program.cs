@@ -9,7 +9,7 @@ namespace ToDoList
     class Program
     {
         public TODOLIST ToDoList;
-        static public Dictionary<string, int> DayAmountPerMonth = new Dictionary<string, int>();
+        static public int[] DayAmountPerMonth = new int[12];
         static public string[] DaysOfTheWeek = new string[7];
 
         public static string ShowSelectedListItem<T>(int index, List<T> List, Func<T, string> f) //Needs to be placed in a better spot
@@ -47,18 +47,18 @@ namespace ToDoList
         }
         static void Main(string[] args)
         {
-            DayAmountPerMonth.Add("January", 31);
-            DayAmountPerMonth.Add("February", 28);
-            DayAmountPerMonth.Add("March", 31);
-            DayAmountPerMonth.Add("April", 30);
-            DayAmountPerMonth.Add("May", 31);
-            DayAmountPerMonth.Add("June", 30);
-            DayAmountPerMonth.Add("July", 31);
-            DayAmountPerMonth.Add("August", 31);
-            DayAmountPerMonth.Add("September", 30);
-            DayAmountPerMonth.Add("October", 31);
-            DayAmountPerMonth.Add("November", 30);
-            DayAmountPerMonth.Add("December", 31);
+            DayAmountPerMonth[0] = 31;
+            DayAmountPerMonth[1] = 28;
+            DayAmountPerMonth[2] = 31;
+            DayAmountPerMonth[3] = 30;
+            DayAmountPerMonth[4] = 31;
+            DayAmountPerMonth[5] = 30;
+            DayAmountPerMonth[6] = 31;
+            DayAmountPerMonth[7] = 31;
+            DayAmountPerMonth[8] = 30;
+            DayAmountPerMonth[9] = 31;
+            DayAmountPerMonth[10] = 30;
+            DayAmountPerMonth[11] = 31;
 
             DaysOfTheWeek[0] = "Monday";
             DaysOfTheWeek[1] = "Tuesday";
@@ -69,6 +69,11 @@ namespace ToDoList
             DaysOfTheWeek[6] = "Sunday";
 
             Day Daag = new Day("Maandag", 2);
+
+            //Hier kan je een datum invullen en zien welke dag van de week dat is.
+            var testDag = whichDayOfTheWeek(22, 8, 2021);
+            Console.WriteLine("Break point");
+
             //Year tweeduizendeenentwintig = new Year(2021);
             //tweeduizendeenentwintig.MonthList.Add(new Month("Januari"));
             //tweeduizendeenentwintig.MonthList.Add(new Month("Februari"));
@@ -89,6 +94,31 @@ namespace ToDoList
             if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
                 return true;
             return false;
+        }
+
+        public static string whichDayOfTheWeek(int day, int month, int year)
+        {
+            var endMonth = 11;
+            var totalDays = 0;
+            for (int j = 2001; j <= year; j++)
+            {
+                if (j == year)
+                    endMonth = month - 1;
+                else
+                    endMonth = 11;
+
+                for (int i = 0; i <= endMonth; i++) //Startdate used to calculate all other dates is Monday: 1 - January - 2001.
+                {
+                    if (i == endMonth && j == year)
+                        totalDays = totalDays + day;
+                    else if (isLeap(j) && i == 1)
+                        totalDays = totalDays + 29;
+                    else
+                        totalDays = totalDays + DayAmountPerMonth[i];
+                }
+            }
+            totalDays--;
+            return DaysOfTheWeek[totalDays % 7];
         }
     }
 }
